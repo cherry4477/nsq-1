@@ -1,0 +1,12 @@
+variables:
+  # Configure mysql service (https://hub.docker.com/_/mysql/)
+  GOARCH=amd64
+  GOARCH=386
+test-go-1.5:
+  image: golang:1.5
+  stage: test
+  script:
+    - curl -s https://raw.githubusercontent.com/pote/gpm/v1.2.3/bin/gpm > gpm
+    - chmod +x gpm
+    - ./gpm install
+    - ./test.sh
